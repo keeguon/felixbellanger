@@ -209,7 +209,10 @@ header { color: #222222; font: normal 36px 'Trebuchet MS', sans-serif; text-alig
 code { display: block; background: #000; color: #fff; font: bold 14px monospace; line-height: 1.3em; padding: 11px; margin: 10px; }
 article { margin: 0 .6em }
 article h2 { color: #222222; font: normal 24px 'Yanone Kaffeesatz', sans-serif; }
+article h2 a:link, article h2 a:visited { color: #222222; font: normal 24px 'Yanone Kaffeesatz', sans-serif; text-decoration: none; }
+article h2 a:hover, article h2 a:active { color: #666666; }
 article p { color: #333333; margin: 1em 0; }
+.error { text-align: center; }
 .pagination { color: #222222; font: italic 14px Georgia, sans-serif; margin: 0 .6em; }
 .pagination a:link, .pagination a:visited { text-decoration: none; }
 .pagination a:hover, .pagination a:active {}

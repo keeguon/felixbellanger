@@ -6,6 +6,20 @@ module FelixBellanger
       Mongoid.configure do |config|
         config.from_hash(mongoid_config['development'])
       end
+
+      set :views, File.join(File.dirname(__FILE__), '..', 'views')
+    end
+
+    not_found do
+      erb(:"../404", {
+        :layout => :"../layout",
+        :locals => {
+          :title           => "Felix Bellanger / 404",
+          :description     => "This is not the web page you are looking for...",
+          :author          => "Felix Bellanger <felix.bellanger@gmail.com>",
+          :analyticssiteid => "UA-16260080-1"
+        }
+      })
     end
   end
 end

@@ -3,6 +3,29 @@ class FelixBellanger::Posts < FelixBellanger::Base
     set :views, File.join(File.dirname(__FILE__), '..', 'views', 'posts')
   end
 
+  get '/:year/:month/:day/:slug' do
+    @post = Post.first(:conditions => {
+      :slug => params[:slug],
+      :created_at.gte => Time.local(params[:year].to_i, params[:month].to_i, params[:day].to_i),
+      :created_at.lt => Time.local(params[:year].to_i, params[:month].to_i, params[:day].to_i + 1),
+      :published => true
+    })
+
+    if @post.nil?
+      halt 404
+    end
+
+    erb(:post, {
+      :layout => :"../layout",
+      :locals => {
+        :title           => "Felix Bellanger / Blog",
+        :description     => "Stuffs about my life and my work",
+        :author          => "Felix Bellanger <felix.bellanger@gmail.com>",
+        :analyticssiteid => "UA-16260080-1"
+      }
+    })
+  end
+
   get %r{/([0-9]*)} do |page|
     if page.to_i == 0
       page = 1
