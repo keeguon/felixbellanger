@@ -4,7 +4,7 @@ default_run_options[:pty] = true
 
 set :domain, "felixbellanger.com"
 set :application, "felixbellanger"
-set :deploy_to, "/var/www/felixbellanger/web/"
+set :deploy_to, "/var/www/felixbellanger/web"
 
 set :user, "felixbellanger"
 set :use_sudo, false
@@ -30,6 +30,11 @@ namespace :deploy do
   task :restart do
     deploy.stop
     deploy.start
+  end
+
+  task :cold do
+    deploy.update
+    deploy.restart
   end
 end
 
