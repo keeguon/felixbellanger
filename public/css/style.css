@@ -207,9 +207,9 @@ body { margin: 1em 0; }
 #container { width: 960px; margin: 0 auto; }
 header { color: #222222; font: normal 36px 'Trebuchet MS', sans-serif; text-align: center; padding: 1em 0; }
 code { display: block; background: #000; color: #fff; font: bold 14px monospace; line-height: 1.3em; padding: 11px; margin: 10px; }
-.posts article { margin: 0 .6em }
-.posts article h2 { color: #222222; font: normal 24px 'Yanone Kaffeesatz', sans-serif; }
-.posts article p { color: #333333; margin: 1em 0; }
+article { margin: 0 .6em }
+article h2 { color: #222222; font: normal 24px 'Yanone Kaffeesatz', sans-serif; }
+article p { color: #333333; margin: 1em 0; }
 .pagination { color: #222222; font: italic 14px Georgia, sans-serif; margin: 0 .6em; }
 .pagination a:link, .pagination a:visited { text-decoration: none; }
 .pagination a:hover, .pagination a:active {}
