@@ -8,13 +8,13 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: project
+  database: felixbellanger
 
 test:
   <<: *defaults
-  database: project_test
+  database: felixbellanger_test
 
 production:
   <<: *defaults
-  database: project_prod
+  database: felixbellanger_prod
 
