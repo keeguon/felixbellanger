@@ -18,7 +18,7 @@ class FelixBellanger::Posts < FelixBellanger::Base
     erb(:post, {
       :layout => :"../layout",
       :locals => {
-        :title           => "Felix Bellanger / Blog",
+        :title           => "Felix Bellanger / " + @post.title,
         :description     => "Stuffs about my life and my work",
         :author          => "Felix Bellanger <felix.bellanger@gmail.com>",
         :analyticssiteid => "UA-16260080-1"
