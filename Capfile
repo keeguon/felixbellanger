@@ -4,7 +4,7 @@ default_run_options[:pty] = true
 
 set :domain, "felixbellanger.com"
 set :application, "felixbellanger"
-set :deploy_to, "/var/www/felixbellanger/dev/"
+set :deploy_to, "/var/www/felixbellanger/web/"
 
 set :user, "felixbellanger"
 set :use_sudo, false
@@ -20,7 +20,16 @@ role :web, domain
 
 namespace :deploy do
   task :start do
-    run "cd #{deploy_to}/current && nohup unicorn config.ru"
+    run "cd #{deploy_to}/current && nohup unicorn -D config.ru"
+  end
+
+  task :stop do
+    run "killall unicorn"
+  end
+
+  task :restart do
+    deploy.stop
+    deploy.start
   end
 end
 
