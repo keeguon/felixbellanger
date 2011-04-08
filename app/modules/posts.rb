@@ -4,7 +4,7 @@ class FelixBellanger::Posts < FelixBellanger::Base
   end
 
   get '/' do
-    status, headers, body = call request.env.merge("PATH_INFO" => '/1')
+    status, headers, body = call! request.env.merge("PATH_INFO" => '/1')
     [status, body]
   end
 
