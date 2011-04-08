@@ -3,16 +3,15 @@ class FelixBellanger::Posts < FelixBellanger::Base
     set :views, File.join(File.dirname(__FILE__), '..', 'views', 'posts')
   end
 
-  get '/' do
-    status, headers, body = call! request.env.merge("PATH_INFO" => '/1')
-    [status, body]
-  end
+  get %r{/([0-9]*)} do |page|
+    if page.to_i == 0
+      page = 1
+    end
 
-  get '/:page' do
     # Pagination logic
     per_page = 5
     @pagination = {
-      :current_page => params[:page],
+      :current_page => page,
       :total_pages => (Post.count(conditions: { published: true }) / per_page) + 1
     }
     
@@ -20,7 +19,7 @@ class FelixBellanger::Posts < FelixBellanger::Base
     @posts = Post.paginate(
       conditions: { published: true },
       sort: [[ :created_at, :desc ]],
-      page: params[:page],
+      page: page.to_i,
       per_page: per_page
     )
 
