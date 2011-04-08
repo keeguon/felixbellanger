@@ -1,0 +1,29 @@
+<% if @posts.empty? %>
+  <p>No posts found.</p>
+<% else %>
+  <!-- The posts loop -->
+  <section class="posts">
+    <% @posts.each do |post| %>
+      <article>
+        <h2><%= post.title %></h2>
+        <%= post.body %>
+      </article>
+      <hr />
+    <% end %>
+  </section>
+
+  <!-- Pagination links -->
+  <div class="pagination">
+    <% if @pagination[:current_page].to_i == 1 %>
+      <p class="right"><a href="/blog/<%= (@pagination[:current_page].to_i + 1) %>">Next page &rarr;</a></p>
+    <% elsif @pagination[:current_page].to_i == @pagination[:total_pages] %>
+      <p class="left"><a href="/blog">&larr; Previous page</a></p>
+    <% else %>
+      <p class="left"><a href="/blog/<%= (@pagination[:current_page].to_i - 1) %>">&larr; Previous page</a></p>
+      <p class="right"><a href="/blog/<%= (@pagination[:current_page].to_i + 1) %>">Next page &rarr;</a></p>
+    <% end %>
+    <div class="clearfix"></div>
+  </div>
+  <hr />
+<% end %>
+
