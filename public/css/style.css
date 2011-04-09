@@ -218,6 +218,7 @@ article p { color: #333333; margin: 1em 0; }
 .pagination a:link, .pagination a:visited { text-decoration: none; }
 .pagination a:hover, .pagination a:active {}
 #disqus_thread { margin: 0 .6em; }
+footer { margin: 0 .6em }
 footer ul { list-style: none; margin: 0; }
 footer ul li { color: #333333; display: inline; padding: 0 .3em; }
 
