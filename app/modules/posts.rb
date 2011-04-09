@@ -35,7 +35,7 @@ class FelixBellanger::Posts < FelixBellanger::Base
     per_page = 5
     @pagination = {
       :current_page => page,
-      :total_pages => (Post.count(conditions: { published: true }) / per_page) + 1
+      :total_pages => (Post.count(conditions: { published: true }) / per_page).ceil
     }
     
     # Retrieve things from the DB
