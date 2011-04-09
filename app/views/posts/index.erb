@@ -22,7 +22,7 @@
     <% elsif @pagination[:current_page].to_i == @pagination[:total_pages] %>
       <p class="left"><a href="/blog">&larr; Previous page</a></p>
     <% else %>
-      <p class="left"><a href="/blog/<%= (@pagination[:current_page].to_i - 1) %>">&larr; Previous page</a></p>
+      <p class="left"><a href="/blog/<%= (@pagination[:current_page].to_i - 1 == 1 ? 1 : (@pagination[:current_page].to_i - 1)) %>">&larr; Previous page</a></p>
       <p class="right"><a href="/blog/<%= (@pagination[:current_page].to_i + 1) %>">Next page &rarr;</a></p>
     <% end %>
     <div class="clearfix"></div>
