@@ -5,7 +5,10 @@
   <section class="posts">
     <% @posts.each do |post| %>
       <article>
-        <h2><a href="/blog/<%= post.created_at.year.to_s + '/' + post.created_at.month.to_s + '/' + post.created_at.day.to_s + '/' + post.slug %>"><%= post.title %></a></h2>
+        <h2>
+          <a href="/blog/<%= post.created_at.year.to_s + '/' + post.created_at.month.to_s + '/' + post.created_at.day.to_s + '/' + post.slug %>"><%= post.title %></a>
+          <span class="date"><%= post.created_at.strftime("%B %d, %Y") %></span>
+        </h2>
         <%= post.body %>
       </article>
       <hr />

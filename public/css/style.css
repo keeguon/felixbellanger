@@ -212,6 +212,7 @@ article { margin: 0 .6em }
 article h2 { color: #222222; font: normal 24px 'Yanone Kaffeesatz', sans-serif; }
 article h2 a:link, article h2 a:visited { color: #222222; font: normal 24px 'Yanone Kaffeesatz', sans-serif; text-decoration: none; }
 article h2 a:hover, article h2 a:active { color: #666666; }
+article .date { color: #AAAAAA; font: italic 14px Georgia, serif; margin-left: 10px; }
 article p { color: #333333; margin: 1em 0; }
 .error { text-align: center; }
 .pagination { color: #222222; font: italic 14px Georgia, sans-serif; margin: 0 .6em; }
