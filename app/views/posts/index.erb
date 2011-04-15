@@ -17,13 +17,13 @@
 
   <!-- Pagination links -->
   <div class="pagination">
-    <% if @pagination[:current_page].to_i == 1 %>
-      <p class="right"><a href="/blog/<%= (@pagination[:current_page].to_i + 1) %>">Next page &rarr;</a></p>
-    <% elsif @pagination[:current_page].to_i == @pagination[:total_pages] %>
-      <p class="left"><a href="/blog">&larr; Previous page</a></p>
+    <% if @posts.current_page == 1 %>
+      <p class="right"><a href="/blog/<%= (@posts.current_page + 1) %>">Next page &rarr;</a></p>
+    <% elsif @posts.current_page == @posts.total_pages %>
+      <p class="left"><a href="/blog/<%= (@posts.current_page - 1) %>">&larr; Previous page</a></p>
     <% else %>
-      <p class="left"><a href="/blog/<%= (@pagination[:current_page].to_i - 1 == 1) ? nil : (@pagination[:current_page].to_i - 1) %>">&larr; Previous page</a></p>
-      <p class="right"><a href="/blog/<%= (@pagination[:current_page].to_i + 1) %>">Next page &rarr;</a></p>
+      <p class="left"><a href="/blog/<%= (@posts.current_page - 1 == 1) ? nil : (@posts.current_page - 1) %>">&larr; Previous page</a></p>
+      <p class="right"><a href="/blog/<%= (@posts.current_page + 1) %>">Next page &rarr;</a></p>
     <% end %>
     <div class="clearfix"></div>
   </div>

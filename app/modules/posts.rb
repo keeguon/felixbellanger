@@ -31,19 +31,12 @@ class FelixBellanger::Posts < FelixBellanger::Base
       page = 1
     end
 
-    # Pagination logic
-    per_page = 5
-    @pagination = {
-      :current_page => page,
-      :total_pages => (Post.count(conditions: { published: true }).to_f / per_page.to_f).ceil
-    }
-    
     # Retrieve things from the DB
     @posts = Post.paginate(
       conditions: { published: true },
       sort: [[ :created_at, :desc ]],
       page: page.to_i,
-      per_page: per_page
+      per_page: 5
     )
 
     erb(:index, {
