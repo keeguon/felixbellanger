@@ -18,12 +18,12 @@
   <!-- Pagination links -->
   <div class="pagination">
     <% if @posts.current_page == 1 %>
-      <p class="right"><a href="/blog/<%= (@posts.current_page + 1) %>">Next page &rarr;</a></p>
+      <p class="right"><a href="/blog/<%= (@posts.next_page) %>">Next page &rarr;</a></p>
     <% elsif @posts.current_page == @posts.total_pages %>
-      <p class="left"><a href="/blog/<%= (@posts.current_page - 1) %>">&larr; Previous page</a></p>
+      <p class="left"><a href="/blog/<%= (@posts.previous_page) %>">&larr; Previous page</a></p>
     <% else %>
-      <p class="left"><a href="/blog/<%= (@posts.current_page - 1 == 1) ? nil : (@posts.current_page - 1) %>">&larr; Previous page</a></p>
-      <p class="right"><a href="/blog/<%= (@posts.current_page + 1) %>">Next page &rarr;</a></p>
+      <p class="left"><a href="/blog/<%= (@posts.previous_page == 1) ? nil : (@posts.previous_page) %>">&larr; Previous page</a></p>
+      <p class="right"><a href="/blog/<%= (@posts.next_page) %>">Next page &rarr;</a></p>
     <% end %>
     <div class="clearfix"></div>
   </div>
