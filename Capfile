@@ -34,7 +34,12 @@ namespace :deploy do
 
   task :cold do
     deploy.update
+    deploy.symlink_shared
     deploy.restart
+  end
+
+  task :symlink_shared do
+    run "ln -s #{shared_path}/config #{release_path}"
   end
 end
 
