@@ -1,7 +1,7 @@
 class FelixBellanger::Posts < FelixBellanger::Base
-  configure do
-    set :views, File.join(File.dirname(__FILE__), '..', 'views', 'posts')
-  end
+  register Sinatra::Contrib
+  set :json_encoder, :to_json
+  respond_to :html, :json
 
   get '/:year/:month/:day/:slug' do
     @post = Post.first(:conditions => {
@@ -15,15 +15,7 @@ class FelixBellanger::Posts < FelixBellanger::Base
       halt 404
     end
 
-    erb(:post, {
-      :layout => :"../layout",
-      :locals => {
-        :title           => "Felix Bellanger / " + @post.title,
-        :description     => "Stuffs about my life and my work",
-        :author          => "Felix Bellanger <felix.bellanger@gmail.com>",
-        :analyticssiteid => "UA-16260080-1"
-      }
-    })
+    respond_with :"posts/post", @post
   end
 
   get %r{/([0-9]*)} do |page|
@@ -39,15 +31,7 @@ class FelixBellanger::Posts < FelixBellanger::Base
       per_page: 5
     )
 
-    erb(:index, {
-      :layout => :"../layout",
-      :locals => {
-        :title           => "Felix Bellanger / Blog",
-        :description     => "Stuffs about my life and my work",
-        :author          => "Felix Bellanger <felix.bellanger@gmail.com>",
-        :analyticssiteid => "UA-16260080-1"
-      }
-    })
+    respond_with :"posts/index", @posts
   end
 end
 

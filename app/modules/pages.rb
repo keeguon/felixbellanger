@@ -1,24 +1,17 @@
 class FelixBellanger::Pages < FelixBellanger::Base
-  configure do
-    set :views, File.join(File.dirname(__FILE__), '..', 'views', 'pages')
-  end
+  register Sinatra::Contrib
+  set :json_encoder, :to_json
+  respond_to :html, :json
 
   # Default index
   get '/' do
     redirect to('/blog')
   end
 
-  # About page
+  # Default page
   get '/about' do
-    erb(:about, {
-      :layout => :"../layout",
-      :locals => {
-        :title           => "Felix Bellanger / About",
-        :description     => "Who am I",
-        :author          => "Felix Bellanger <felix.bellanger@gmail.com>",
-        :analyticssiteid => "UA-16260080-1"
-      }
-    })
+    @page =  Page.first(:conditions => { :slug => 'about' })
+    respond_with :"pages/page", @page  
   end
 end
 

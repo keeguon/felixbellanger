@@ -2,6 +2,7 @@ source "http://rubygems.org"
 
 # Sinatra
 gem "sinatra", :require => "sinatra/base"
+gem "sinatra-contrib", :git => "git://github.com/rkh/sinatra-contrib.git", :require => "sinatra/contrib"
 
 # ORM/ODM
 gem "mongoid"
