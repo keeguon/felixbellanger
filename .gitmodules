@@ -10,3 +10,6 @@
 [submodule "vendor/underscore"]
 	path = vendor/underscore
 	url = git://github.com/documentcloud/underscore.git
+[submodule "vendor/handlebars.js"]
+	path = vendor/handlebars.js
+	url = git://github.com/wycats/handlebars.js.git
