@@ -35,6 +35,7 @@ namespace :deploy do
   task :cold do
     deploy.update
     deploy.symlink_shared
+    run "cd #{release_path} && bundle update"
     deploy.restart
   end
 
