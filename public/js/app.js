@@ -9,6 +9,7 @@ var app = Davis(function() {
   });
 
   this.get('/blog', function(req) {
+    console.log(req);
     if (!req.isForPageLoad) {
       $.getJSON(req.path, function(res) {
         $('#main').animate({ left: '+=960' }, function() {
@@ -43,7 +44,7 @@ var app = Davis(function() {
   });
 
   this.get('/about', function(req) {
-    if (req.isPageForLoad == false) {
+    if (req.isForPageLoad == false) {
       $.getJSON(req.path, function(res) {
         console.log(res);
       });
