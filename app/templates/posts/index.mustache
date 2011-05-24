@@ -1,0 +1,27 @@
+<!-- Posts loop -->
+<section class="posts">
+{{^items}}
+  No posts found :(
+  <hr />
+{{/items}}
+{{#items}}
+  <article>
+    <h2>
+      <a href="{{permalink}}">{{title}}</a>
+      <span class="date">{{date}}</span>
+    </h2>
+    {{{body}}}
+  </article>
+  <hr />
+{{/items}}
+</section>
+
+{{#pagination}}
+  <div class="pagination">
+    {{{previous_page}}}
+    {{{next_page}}}
+    <div class="clearfix">
+  </div>
+
+  <hr />
+{{/pagination}}

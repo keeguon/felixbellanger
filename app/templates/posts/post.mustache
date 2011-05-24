@@ -1,14 +1,10 @@
-<!-- Content for -->
-<% content_for :title do @post.title end %>
-<% content_for :description do "Stuffs about my life and my work" end %>
-
 <!-- The post -->
 <article>
   <h2>
-    <%= @post.title %>
-    <span class="date"><%= @post.created_at.strftime("%B %d, %Y") %></span>
+    {{title}}
+    <span class="date">{{created_at}}</span>
   </h2>
-  <%= @post.body %>
+  {{{body}}}
 </article>
 
 <hr />
@@ -21,7 +17,7 @@
 
   // The following are highly recommended additional parameters. Remove the slashes in front to use.
   var disqus_developer = 1;
-  var disqus_identifier = '<%= @post._id %>';
+  var disqus_identifier = '{{_id}}';
   var disqus_url = window.location;
 
   /* * * DON'T EDIT BELOW THIS LINE * * */

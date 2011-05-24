@@ -1,13 +1,19 @@
 module FelixBellanger
   class Base < Sinatra::Base
+    # Mustache
+    register Mustache::Sinatra
+    require File.join(File.dirname(__FILE__), '..', 'views', 'layout')
+    set :mustache, {
+      :views     => File.join(File.dirname(__FILE__), '..', 'views'),
+      :templates => File.join(File.dirname(__FILE__), '..', 'templates')
+    }
+
     # Sinatra configuration
     configure do
       mongoid_config = YAML.load_file(File.join(File.dirname(__FILE__), '..', '..', 'config', 'mongoid.yml'))
       Mongoid.configure do |config|
         config.from_hash(mongoid_config['development'])
       end
-
-      set :views, File.join(File.dirname(__FILE__), '..', 'views')
     end
 
     not_found do

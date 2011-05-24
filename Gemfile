@@ -8,6 +8,9 @@ gem "sinatra-contrib", :git => "git://github.com/rkh/sinatra-contrib.git", :requ
 gem "mongoid"
 gem "mongoid_slug", :require => "mongoid/slug"
 
+# Templating
+gem "mustache", :require => "mustache/sinatra"
+
 # Other things
 gem "bson_ext", :require => false
 gem "json"
