@@ -9,9 +9,12 @@ var app = Davis(function() {
   });
 
   this.get('/blog', function(req) {
-    console.log(req);
     if (!req.isForPageLoad) {
       $.getJSON(req.path, function(res) {
+        // set title
+        document.title = "Felix Bellanger / Blog";
+
+        // change content
         $('#main').animate({ left: '+=960' }, function() {
           
           var source = $('<div/>').html($('#posts-index').html()).text();
@@ -29,6 +32,10 @@ var app = Davis(function() {
   this.get('/blog/:year/:month/:day/:slug', function(req) {
     if (!req.isForPageLoad) {
       $.getJSON(req.path, function(res) {
+        // set title
+        document.title = "Felix Bellanger / " + res.title;
+
+        // change content
         $('#main').animate({ left: '-=960' }, function() {
           
           var source = $('<div/>').html($('#posts-post').html()).text();
@@ -46,6 +53,10 @@ var app = Davis(function() {
   this.get('/about', function(req) {
     if (req.isForPageLoad == false) {
       $.getJSON(req.path, function(res) {
+        // set title
+        document.title = "Felix Bellanger / About";
+
+        // change content
         console.log(res);
       });
     }
