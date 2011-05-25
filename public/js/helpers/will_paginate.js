@@ -5,7 +5,8 @@
 Handlebars.registerHelper('previous_page', function() {
 
   if (this.current_page != 1) {
-    return '<p class="left"><a href="/blog/' + (this.current_page == 2) ? null : (this.current_page - 1) + '">&larr; Previous page</a></p>';
+    var previous_page = (this.current_page == 2) ? '' : (this.current_page - 1);
+    return '<p class="left"><a href="/blog/' + previous_page + '">&larr; Previous page</a></p>';
   }
 
 });

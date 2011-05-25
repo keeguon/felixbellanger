@@ -8,7 +8,7 @@ var app = Davis(function() {
     req.redirect('/blog');
   });
 
-  this.get('/blog', function(req) {
+  this.get('/blog/?(:page)?', function(req) {
     if (!req.isForPageLoad) {
       $.getJSON(req.path, function(res) {
         // set title
