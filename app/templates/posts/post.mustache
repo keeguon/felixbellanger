@@ -1,11 +1,13 @@
 <!-- The post -->
-<article>
-  <h2>
-    {{title}}
-    <span class="date">{{created_at}}</span>
-  </h2>
-  {{{body}}}
-</article>
+{{#post}}
+  <article>
+    <h2>
+      {{title}}
+      <span class="date">{{date}}</span>
+    </h2>
+    {{{body}}}
+  </article>
+{{/post}}
 
 <hr />
 

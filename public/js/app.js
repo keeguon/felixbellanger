@@ -42,7 +42,7 @@ var app = Davis(function() {
           var template = Handlebars.compile(source);
 
           $('#main').css({ left: '960px' }).empty();
-          $('#main').append(template(res));
+          $('#main').append(template({ post: res }));
           $('#main').animate({ left: '-=960' });
 
         });

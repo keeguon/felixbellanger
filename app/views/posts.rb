@@ -41,6 +41,8 @@ class FelixBellanger::Posts
     end
 
     class Post < Layout
+      include ViewHelpers
+      
       def self.template_file
         File.join(File.dirname(__FILE__), '../templates/posts/post.mustache')
       end
@@ -51,14 +53,6 @@ class FelixBellanger::Posts
 
       def title
         @post.title
-      end
-
-      def body
-        @post.body
-      end
-
-      def created_at
-        @post.created_at.strftime("%B %d, %Y")
       end
     end
   end
