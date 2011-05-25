@@ -15,14 +15,14 @@ var app = Davis(function() {
         document.title = "Felix Bellanger / Blog";
 
         // change content
-        $('#main').animate({ left: '+=960' }, function() {
+        $('#main').fadeOut('fast', function() {
           
           var source = $('<div/>').html($('#posts-index').html()).text();
           var template = Handlebars.compile(source);
 
-          $('#main').css({ left: '-960px' }).empty();
+          $('#main').empty();
           $('#main').append(template({ items: res.items, pagination: { current_page: res.current_page, total_pages: res.total_pages } }));
-          $('#main').animate({ left: '+=960' });
+          $('#main').fadeIn('fast');
 
         });
       });
@@ -36,14 +36,14 @@ var app = Davis(function() {
         document.title = "Felix Bellanger / " + res.title;
 
         // change content
-        $('#main').animate({ left: '-=960' }, function() {
+        $('#main').fadeOut('fast', function() {
           
           var source = $('<div/>').html($('#posts-post').html()).text();
           var template = Handlebars.compile(source);
 
-          $('#main').css({ left: '960px' }).empty();
+          $('#main').empty();
           $('#main').append(template({ post: res }));
-          $('#main').animate({ left: '-=960' });
+          $('#main').fadeIn('fast');
 
         });
       });
@@ -57,7 +57,16 @@ var app = Davis(function() {
         document.title = "Felix Bellanger / About";
 
         // change content
-        console.log(res);
+        $('#main').fadeOut('fast', function() {
+        
+          var source = $('<div/>').html($('#pages-page').html()).text();
+          var template = Handlebars.compile(source);
+
+          $('#main').empty();
+          $('#main').append(template(res));
+          $('#main').fadeIn('fast');
+        
+        });
       });
     }
   });
