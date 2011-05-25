@@ -59,7 +59,7 @@ var app = Davis(function() {
         // change content
         $('#main').fadeOut('fast', function() {
         
-          var source = $('<div/>').html($('#pages-page').html()).text();
+          var source = $('<div/>').html($('#posts-page').html()).text();
           var template = Handlebars.compile(source);
 
           $('#main').empty();
