@@ -21,7 +21,7 @@ var app = Davis(function() {
           var template = Handlebars.compile(source);
 
           $('#main').css({ left: '-960px' }).empty();
-          $('#main').append(template(res));
+          $('#main').append(template({ items: res.items, pagination: { current_page: res.current_page, total_pages: res.total_pages } }));
           $('#main').animate({ left: '+=960' });
 
         });
