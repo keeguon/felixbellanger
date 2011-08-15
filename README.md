@@ -10,3 +10,6 @@ After testing a bunch of different micro-framework, since the website doesn't ne
 * an ORM, I would personally go for datamapper if you have a SQL flavored database, here I'm using mongoid since I use MongoDB as a data store
 * a webserver, rackup is okay but not very efficient in production so I would probably say go for thin or unicorn
 
+## Notes
+
+A new version of this will come very soon entirely written in JavaScript using NodeJS.
